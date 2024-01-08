@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice</title>
+</head>
+<body>
+
+    <h1 id="main-heading">DOM Practice</h1>
+
+    <p id="demo-paragraph">This is a sample paragraph.</p>
+
+    <button id="change-text-button" onclick="changeText()">Change Text</button>
+
+    <ul id="sample-list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <form id="sample-form">
+        <label for="input-text">Enter Text:</label>
+        <input type="text" id="input-text" name="inputText">
+        <button type="button" onclick="displayInputText()">Display Input Text</button>
+    </form>
+
+    <form class="sample-class">
+        <ul>
+            <li>Bangladesh</li>
+            <li>Pakistan</li>
+            <li>India</li>
+        </ul>
+    </form>
+
+    <script>
+        // Your JavaScript DOM commands will go here
+
+        function changeText() {
+            // getElementById and textContent
+            document.getElementById('demo-paragraph').textContent = 'Text changed!';
+        }
+
+        function displayInputText() {
+            // getElementById and getAttribute
+            var inputTextValue = document.getElementById('input-text').value;
+            alert('Input Text: ' + inputTextValue);
+        }
+
+        // getElementsByTagName and createElement
+        var newListItem = document.createElement('li');
+        newListItem.textContent = 'New Item';
+        document.getElementById('sample-list').appendChild(newListItem);
+
+        // removeChild
+        var listItems = document.getElementById('sample-list').getElementsByTagName('li');
+        if (listItems.length > 0) {
+            document.getElementById('sample-list').removeChild(listItems[0]);
+        }
+
+        // document.forms
+        var formCount = document.forms;
+        console.log(formCount);
+        console.log('Number of forms on the page: ' + formCount.length);
+
+        // innerHTML
+        document.getElementById('main-heading').innerHTML = 'Modified Heading with innerHTML';
+
+        // getElementsByClassName
+        var itemsWithClass = document.getElementsByClassName('sample-class');
+        console.log(itemsWithClass);
+        console.log('Number of elements with class "sample-class": ' + itemsWithClass.length);
+        
+        // querySelector
+        var firstListItem = document.querySelector('#sample-list li');
+        console.log('Content of the first list item: ' + firstListItem.textContent);
+
+        firstListItem = document.querySelector('#sample-list li:first-child');
+        console.log('Content of the first list item: ' + firstListItem.textContent);
+
+        firstListItem = document.querySelector('#sample-list li:last-child');
+        console.log('Content of the last list item: ' + firstListItem);
+        console.log('Content of the last list item: ' + firstListItem.textContent);
+    </script>
+
+</body>
+</html>
