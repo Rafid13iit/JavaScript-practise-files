@@ -15,11 +15,11 @@
         min-width: 100px;
       }
       .on {
-        background: yellow;
+        background: lightgreen;
       }
       .off {
-        background: gray;
-        color: white;
+        background: rgb(51, 49, 49);
+        color: lightgreen;
       }
     </style>
   </head>
@@ -33,7 +33,7 @@
         console.log("click");
 
         // console.log(btnEl.classList.on);
-        if (btnEl.classList[0] === "on") {
+        if (btnEl.classList[0] == "on") {
           btnEl.classList.remove("on");
           btnEl.classList.add("off");
           btnEl.innerHTML = "OFF";

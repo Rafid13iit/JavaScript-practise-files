@@ -30,13 +30,20 @@
     </main>
     <!-- <footer class="common">This footer text</footer> -->
     <script>
-      // how to access nodes in dom
+      // how to access NODES in DOM
+
       // console.log(document.body.parentNode);
       // console.log(document.body.childNodes);
       // console.log(document.body.childNodes[3].childNodes[1].childNodes[1]);
+      // console.log(document.body.childNodes[5].childNodes[1]);
 
-      // how to access element nodes
+
+      // how to access Element Nodes
+
       // console.log(document.body.children[1].previousElementSibling);
+      // console.log(document.body.children[2].previousElementSibling);
+      // console.log(document.body.previousElementSibling);
+
 
       // how to access element using id and class and tag names
 
@@ -45,7 +52,8 @@
       // console.log(document.getElementsByName("sample")[0]);
       // console.log(document.getElementsByTagName("footer"));
 
-      // query Selector
+
+      // Query Selector
 
       // console.log(document.querySelector("#nav"));
       // console.log(document.querySelector(".common"));
@@ -57,10 +65,13 @@
       //   console.log(common);
       // }
 
+
+
       // const convertedCommonElements = Array.from(commonElements);
 
       // const commonElements = document.querySelectorAll("ul > li:last-child");
       // console.log(commonElements[0].innerHTML);
+
 
       // const attributeValue = document
       //   .getElementById("nav")
@@ -68,19 +79,20 @@
       // document.getElementById("nav").setAttribute("data-random", 5);
       // document.getElementById("nav").removeAttribute("data-random");
 
+
       // console.log(document.getElementById("nav").dataset.new);
+
       // const newFooterText = "This is new text";
       // const heading = document.createElement("h1");
       // const text = document.createTextNode("I am base");
-      // const text1 = document.createTextNode("HI,Guys");
+      // const text1 = document.createTextNode("HI,Guys ");
       // heading.append(text);
       // heading.prepend(text1);
       // const footer = document.getElementsByTagName("footer")[0];
+      
       // footer.append(heading);
       // footer.before(heading);
-
       // footer.after(heading);
-
       // footer.replaceWith(newFooterText);
 
       // document.getElementsByTagName("nav")[0].remove();
@@ -102,28 +114,29 @@
       //     <li>Dashboard</li>
       //   </ul>
       // </nav>`;
+
       // document.querySelector("footer").innerHTML = manyHtmlCode;
       // document.querySelector("footer").innerText = manyHtmlCode;
       // document.querySelector("footer").outerHTML = manyHtmlCode;
 
-      function alertMe(e) {
-        console.log(e.getAttribute("id"));
+      // function alertMe(e) {
+      //   console.log(e.getAttribute("id"));
 
-        alert("You are doing wrong!");
+      //   alert("You are doing wrong!");
+      // }
+
+      const changeBtnEl = document.getElementById("changeBtn");
+
+      function random(number) {
+        return Math.floor(Math.random() * (number + 1));
       }
 
-      // const changeBtnEl = document.getElementById("changeBtn");
-
-      // function random(number) {
-      //   return Math.floor(Math.random() * (number + 1));
-      // }
-
-      // function forChangeingColor(event) {
-      //   const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
-      //   document.body.style.backgroundColor = rndCol;
-      // }
-
-      // changeBtnEl.addEventListener("click", forChangeingColor);
+      function forChangeingColor(event) {
+        const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+        document.body.style.backgroundColor = rndCol;
+      }
+      
+      changeBtnEl.addEventListener("click", forChangeingColor);
       // changeBtnEl.removeEventListener("click", forChangeingColor);
 
       // changeBtnEl.addEventListener("click", function forChangeingColor(event) {
