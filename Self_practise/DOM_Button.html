@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marvelous Button</title>
+    <style>
+      button {
+        padding: 15px 30px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        min-width: 100px;
+      }
+
+      .on {
+        background: linear-gradient(to right, #3498db, #2980b9);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+      .off {
+        background: linear-gradient(to right, #db3474, #b92957);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .on:hover {
+        background: linear-gradient(to right, #2980b9, #3498db);
+      }
+
+      .off:hover {
+        background: linear-gradient(to right, #b92957, #db3474);
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn" class="on">ON</button>
+
+    <script>
+        const btnEl = document.getElementById("btn");
+
+        function clickBtn (){
+            if (btnEl.classList[0] == "on"){
+                btnEl.classList.remove("on");
+                btnEl.classList.add("off");
+
+                btnEl.innerHTML = "OFF";
+            }
+            else{
+                btnEl.classList.remove("off");
+                btnEl.classList.add("on");
+
+                btnEl.innerHTML = "ON";
+            }
+        }
+        
+        btnEl.addEventListener("click", clickBtn);
+    </script>
+  </body>
+</html>

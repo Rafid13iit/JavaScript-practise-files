@@ -19,7 +19,6 @@
 // function logGet() {
 //   console.log("Get");
 // }
-
 // logGet();
 
 // function logSet(callback) {
@@ -28,7 +27,6 @@
 //     callback();
 //   }, 2000);
 // }
-
 // logSet(logReadyAndGo);
 
 // function logReadyAndGo() {
