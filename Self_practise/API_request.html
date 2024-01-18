@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API request practise</title>
+
+    <style>
+        /* Add some basic styling for the card */
+        .card {
+            background: #bebcbc;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style the card content */
+        .card-content {
+            padding: 16px;
+        }
+
+        /* Add styling for the card title */
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 8px;
+        }
+
+        /* Add styling for the card text */
+        .card-text {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-content">
+            <h3 class="card-title" id="name">GitHub User Name : Loading...</h3>
+            <p class="card-text" id="followers">Followers: Loading...</p>
+            <img alt="Profile Image" id="avatar">
+        </div>
+    </div>
+
+    <script>
+        const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('GET', requestUrl);
+        xhr.onreadystatechange = function(){
+            if (xhr.readyState === 4) {
+                const data = JSON.parse(this.responseText);
+
+                const nameElement = document.getElementById('name');
+                // console.log(nameElement)
+                const followersElement = document.getElementById('followers');
+                // console.log(followersElement)
+                const avatarElement = document.getElementById('avatar');
+                // console.log(avatarElement)
+
+
+                nameElement.innerHTML = data.name;
+                // nameElement.innerHTML = `GitHub User Name: ${data.name}`;
+                followersElement.textContent = `Followers: ${data.followers}`;
+                avatarElement.src = data.avatar_url;
+                avatarElement.height = 70;
+                avatarElement.width = 70;
+            }
+        }
+
+        xhr.send();
+    </script>
+</body>
+</html>
